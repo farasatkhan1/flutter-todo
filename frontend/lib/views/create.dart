@@ -43,6 +43,9 @@ class _CreateTodo extends State<CreateTodo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Create new item"),
+      ),
       body: Container(
         margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
         child: Column(

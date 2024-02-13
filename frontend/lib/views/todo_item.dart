@@ -42,15 +42,23 @@ class _TodoItemState extends State<TodoItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container(
+    return Scaffold(appBar: AppBar(
+        title: const Text("Todo Item"),
+      ),
+      body: Container(
       margin: const EdgeInsets.symmetric(horizontal: 40),
       child: Column(children: [
         Text(widget.todoItem.data),
         const SizedBox(height: 30),
-        ElevatedButton(onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateTodo(id: widget.todoItem.id, data: widget.todoItem.data)));
-        }, child: const Text("Update Todo Item")),
-        ElevatedButton(onPressed: _deleteTodoItem, child: const Text("Delete Item"))],),
+        Row(
+          children: [
+            ElevatedButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateTodo(id: widget.todoItem.id, data: widget.todoItem.data)));
+            }, child: const Text("Update Todo Item")),
+            const SizedBox(width: 30),
+            ElevatedButton(onPressed: _deleteTodoItem, child: const Text("Delete Item"))
+          ],
+        )],),
     ),);
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:frontend/main.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -52,13 +52,16 @@ class _UpdateTodoState extends State<UpdateTodo> {
     }
 
     if (context.mounted) {
-      Navigator.pop(context);
+      Navigator.push(context, MaterialPageRoute(builder: (context) => TodoScreen()));
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Update Items"),
+      ),
       body: Container(
         margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
         child: Column(
@@ -73,7 +76,7 @@ class _UpdateTodoState extends State<UpdateTodo> {
             ElevatedButton(onPressed: updateTodoItemRequest, child: const Text("Update Todo Item")), 
             ElevatedButton(onPressed: () {
               Navigator.pop(context);
-            }, child: const Text("Go to Home"))
+            }, child: const Text("Go Back"))
             ],)
         ],
       ),

@@ -77,7 +77,8 @@ class _TodoScreenState extends State<TodoScreen> {
       )),
       ElevatedButton(onPressed: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => const CreateTodo())).then(onGoBack);
-      }, child: const Text("Create new item"))
+      }, child: const Text("Create new item")),
+      const SizedBox(height: 30,)
       ],),
     );
   }

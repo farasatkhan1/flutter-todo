@@ -16,12 +16,6 @@ class TodoItem extends StatefulWidget {
 
 class _TodoItemState extends State<TodoItem> {
 
-  Future<void> _getTodoItem() async {
-    const apiUrl = "http://localhost:3000/${widget.todoItem.id}";
-
-    var response = await http.get(Uri.parse(apiUrl));
-  }
-
   Future<void> _deleteTodoItem() async {
     const apiUrl = "http://localhost:3000/delete";
 
@@ -54,7 +48,7 @@ class _TodoItemState extends State<TodoItem> {
         Text(widget.todoItem.data),
         const SizedBox(height: 30),
         ElevatedButton(onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateTodo(id: widget.todoItem.id, data: widget.todoItem.data))).then();
+          Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateTodo(id: widget.todoItem.id, data: widget.todoItem.data)));
         }, child: const Text("Update Todo Item")),
         ElevatedButton(onPressed: _deleteTodoItem, child: const Text("Delete Item"))],),
     ),);
